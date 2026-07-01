@@ -909,7 +909,7 @@ function updateDollDropdown() {
 }
 
 function saveAsImage() {
-    html2canvas(document.getElementById('border'), {
+    html2canvas(document.getElementById('beautyparlour'), {
     scale: window.devicePixelRatio,
     useCORS: true
 }).then(canvas => {
