@@ -11,9 +11,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" >
-  <link rel="icon" type="image/x-icon" href="DressupGame_Assets/Logos/Dolli_AppLogo3.png">
+<link rel="icon" type="image/x-icon" href="DressupGame_Assets/Logos/Dolli_AppLogo3.png">
 <link rel="stylesheet" href="dollistylesheet.css">
 <link rel="stylesheet" href="infoboxstylesheet.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="dolliscript.js" defer></script>
 
 
@@ -482,7 +483,14 @@ html, body {
             </div>
             <div id="menu">
                 <div onClick="undo()" class="menubutton" style="width:45px;"><u>U</u>ndo</div>
-                <div onClick="saveImage()" class="menubutton" style="width:35px;"><u>S</u>ave</div>
+                <div onClick="saveCurrentDoll()" class="menubutton" style="width:35px;"><u>S</u>ave</div>
+                    <div class="menubutton" onclick="this.classList.toggle('open')" style="width:45px;padding-left:7px"><u>D</u>olls
+                        <div class="menuoverlay" id="dollsoverlay">
+                            <div class="menusongs" style="color:#888;font-style:italic;">No saved Dolls</div>
+                        </div>
+                    </div>
+
+                    <div onClick="saveAsImage()" class="menubutton" style="width:55px;"><u>I</u>mage</div>
                 <div class="menubutton" onclick="this.classList.toggle('open')" style="width:45px;padding-left:7px"><u>M</u>usic
                 <div class="menuoverlay">
                 <div class="menusongs"  onclick="playSong('song1', this)">"Glossy"</div>

@@ -743,6 +743,7 @@ setTimeout(function() {
   }, 400);
 }, 2500); 
 
+updateDollDropdown();
 }; 
 
 /*function playClick() {
@@ -750,3 +751,167 @@ setTimeout(function() {
     click.currentTime = 0;
     click.play();
 } */
+
+
+// ─── SAVED DOLLS ───────────────────────────────────────────────
+
+function saveCurrentDoll() {
+    const saved = JSON.parse(localStorage.getItem('savedDolls') || '[]');
+    if (saved.length >= 5) {
+        alert('You can only save up to 5 Dolls. Please delete one first.');
+        return;
+    }
+
+    const name = prompt('Name your Doll:');
+    if (!name) return;
+
+    const state = {
+        name: name,
+        id: Date.now(),
+        slideIndex: slideIndex,
+        currentEyeId: currentEyeId,
+        currentEyeColor: currentEyeColor,
+        currentHairId: currentHairId,
+        currentHairColor: currentHairColor,
+        currentHairHue: currentHairHue,
+        currentBrowId: currentBrowId,
+        currentBrowColor: currentBrowColor,
+        currentBrowHue: currentBrowHue,
+        currentLipId: currentLipId,
+        currentLipColor: currentLipColor,
+        currentLipHue: currentLipHue,
+        currentNoseId: currentNoseId,
+        currentBlushId: currentBlushId,
+        currentBlushColor: currentBlushColor,
+        blushVisible: document.getElementById(currentBlushId)?.style.display === "block",
+        currentTopId: currentTopId,
+        currentTopColor: currentTopColor,
+        currentTopHue: currentTopHue,
+        topVisible: currentTopId ? document.getElementById(currentTopId)?.style.display === "block" : false,
+        bgImage: document.getElementById("beautyparlour").style.backgroundImage,
+        bgColor: document.getElementById("beautyparlour").style.backgroundColor,
+        activeSkinDetails: [...activeSkinDetails],
+        skinDetailOpacity: { ...skinDetailOpacity }
+    };
+
+    saved.push(state);
+    localStorage.setItem('savedDolls', JSON.stringify(saved));
+    updateDollDropdown();
+    alert(`"${name}" saved!`);
+}
+
+function loadDoll(id) {
+    const saved = JSON.parse(localStorage.getItem('savedDolls') || '[]');
+    const state = saved.find(d => d.id === parseInt(id));
+    if (!state) return;
+
+    // restore everything the same way undo() does
+    skinSlides(state.slideIndex);
+
+    document.querySelectorAll(".eyeshape").forEach(s => s.style.display = "none");
+    currentEyeId = state.currentEyeId;
+    document.getElementById(currentEyeId).style.display = "block";
+    currentEyeColor = state.currentEyeColor;
+    updateEyesForSkin(state.slideIndex);
+
+    document.querySelectorAll(".hairshape").forEach(s => s.style.display = "none");
+    currentHairId = state.currentHairId;
+    currentHairColor = state.currentHairColor;
+    currentHairHue = state.currentHairHue;
+    document.getElementById(currentHairId).style.display = "block";
+    document.getElementById(currentHairId).querySelectorAll("img").forEach(img => {
+        img.style.display = img.src.includes(currentHairColor) ? "block" : "none";
+    });
+
+    document.querySelectorAll(".browshape").forEach(s => s.style.display = "none");
+    currentBrowId = state.currentBrowId;
+    document.getElementById(currentBrowId).style.display = "block";
+    updateBrowColor(state.currentBrowColor);
+
+    document.querySelectorAll(".lipshape").forEach(s => s.style.display = "none");
+    currentLipId = state.currentLipId;
+    document.getElementById(currentLipId).style.display = "block";
+    updateLipColor(state.currentLipColor);
+    currentLipHue = state.currentLipHue;
+
+    document.querySelectorAll(".noseshape").forEach(s => s.style.display = "none");
+    currentNoseId = state.currentNoseId;
+    document.getElementById(currentNoseId).style.display = "block";
+    updateNosesForSkin(state.slideIndex);
+
+    document.querySelectorAll(".blushshape").forEach(s => s.style.display = "none");
+    currentBlushId = state.currentBlushId;
+    document.getElementById(currentBlushId).style.display = state.blushVisible ? "block" : "none";
+    if (state.blushVisible) updateBlushColor(state.currentBlushColor);
+
+    document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
+    if (state.currentTopId && state.topVisible) {
+        currentTopId = state.currentTopId;
+        currentTopColor = state.currentTopColor;
+        document.getElementById(currentTopId).style.display = "block";
+        updateTopColor(state.currentTopColor);
+    }
+
+    // restore skin details
+    activeSkinDetails = new Set(state.activeSkinDetails || []);
+    skinDetailOpacity = state.skinDetailOpacity || {};
+    document.querySelectorAll('.skindetails img').forEach(img => img.style.display = 'none');
+    activeSkinDetails.forEach(detailId => {
+        const target = document.querySelector(`.skindetails img[src*="${detailId}"]`);
+        if (target) {
+            target.style.display = 'block';
+            target.style.opacity = skinDetailOpacity[detailId] ?? 1;
+        }
+    });
+
+    document.getElementById("beautyparlour").style.backgroundImage = state.bgImage;
+    document.getElementById("beautyparlour").style.backgroundColor = state.bgColor;
+
+    goToSection(currentSectionIndex);
+}
+
+function deleteDoll(id) {
+    if (!confirm('Delete this Doll?')) return;
+    let saved = JSON.parse(localStorage.getItem('savedDolls') || '[]');
+    saved = saved.filter(d => d.id !== parseInt(id));
+    localStorage.setItem('savedDolls', JSON.stringify(saved));
+    updateDollDropdown();
+}
+
+function updateDollDropdown() {
+    const saved = JSON.parse(localStorage.getItem('savedDolls') || '[]');
+    const overlay = document.getElementById('dollsoverlay');
+    overlay.innerHTML = '';
+    if (saved.length === 0) {
+        overlay.innerHTML = '<div class="menusongs" style="color:#888;font-style:italic;">No saved Dolls</div>';
+        return;
+    }
+    saved.forEach(doll => {
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.justifyContent = 'space-between';
+        row.style.alignItems = 'center';
+        const nameBtn = document.createElement('div');
+        nameBtn.className = 'menusongs';
+        nameBtn.textContent = doll.name;
+        nameBtn.style.flex = '1';
+        nameBtn.onclick = () => loadDoll(doll.id);
+        const delBtn = document.createElement('div');
+        delBtn.className = 'menusongs';
+        delBtn.textContent = '✕';
+        delBtn.style.padding = '0 8px';
+        delBtn.onclick = (e) => { e.stopPropagation(); deleteDoll(doll.id); };
+        row.appendChild(nameBtn);
+        row.appendChild(delBtn);
+        overlay.appendChild(row);
+    });
+}
+
+function saveAsImage() {
+    html2canvas(document.getElementById('beautyparlour')).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'my-dolli.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+}
