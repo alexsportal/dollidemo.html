@@ -910,7 +910,6 @@ function updateDollDropdown() {
 
 function saveAsImage() {
     html2canvas(document.getElementById('beautyparlour'), {
-    scale: window.devicePixelRatio,
     useCORS: true
 }).then(canvas => {
         const link = document.createElement('a');
