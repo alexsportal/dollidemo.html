@@ -532,7 +532,7 @@ body{
 .beautyoptionstops:hover,
 .beautyoptionsbg:hover{
    background-color: #d3dae5;
-   box-shadow: #7d3e59 0px 0px 6px inset;
+   border-bottom: #ac5883 2px solid;
 }
 
 

@@ -752,6 +752,7 @@ updateDollDropdown();
     click.play();
 } */
 
+    
 
 // ─── SAVED DOLLS ───────────────────────────────────────────────
 
@@ -908,7 +909,10 @@ function updateDollDropdown() {
 }
 
 function saveAsImage() {
-    html2canvas(document.getElementById('beautyparlour')).then(canvas => {
+    html2canvas(document.getElementById('beautyparlour'), {
+    scale: window.devicePixelRatio,
+    useCORS: true
+}).then(canvas => {
         const link = document.createElement('a');
         link.download = 'my-dolli.png';
         link.href = canvas.toDataURL('image/png');
