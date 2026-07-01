@@ -335,18 +335,7 @@ body{
     -moz-box-shadow: 2px 4px 15px -8px #412b55;
 }
 
-@media screen and (max-width:396px){
-.padding{
-    height:100px;
-    width:339px;
-    }
-.optioncontainer{
-    height: 90px;
-    gap: 15px;
-    width:340px;
-}
 
-}
 
 .beautyoptionsskin{
     width: 104px;
@@ -549,7 +538,7 @@ body{
 
 @media screen and (max-width:396px){
 .beautyoptionsskin{
-    width:103px;
+    width:93px;
     height: 70px;
     background-position-y: -50px;
     }
@@ -564,7 +553,7 @@ body{
 }
 @media screen and (max-width:396px){
 .beautyoptionsbrows{
-    width:103px;
+    width:93px;
     background-position-x: -423px;
     background-position-y: -145px;
     height: 70px;
@@ -572,7 +561,7 @@ body{
 }
 @media screen and (max-width:396px){
 .beautyoptionsnose{
-    width:103px;
+    width:93px;
     background-position-x: -618px;
     background-position-y: -265px;
     height: 70px;
@@ -580,7 +569,7 @@ body{
 }
 @media screen and (max-width:396px){
 .beautyoptionslips{
-    width:103px;
+    width:93px;
     background-position-x: -533px;
     background-position-y: -248px;
     height: 70px;
@@ -588,7 +577,7 @@ body{
 }
 @media screen and (max-width:396px){
 .beautyoptionshair{
-    width:103px;
+    width:93px;
     background-position-x: -95px;
     background-position-y: -13px;
     height: 70px;
@@ -597,22 +586,22 @@ body{
 
 @media screen and (max-width:396px){
 .beautyoptionsjewelry{
-    width:103px;
+    width:93px;
     height: 70px;
     }
 .beautyoptionsbg{
-    width:103px;
+    width:93px;
     height: 70px;
     }
     
 .beautyoptionstops{
-    width:103px;
+    width:93px;
     height: 70px;
     background-position-y: -64px;
     background-position-x: -79px;
     }
 .beautyoptionsmakeup{
-    width:103px;
+    width:93px;
     height: 70px;
     }
 }
@@ -1128,4 +1117,25 @@ span{
     left: 0;
     right: 0;
     justify-content: space-between;
+}
+
+@media screen and (max-width:396px){
+.padding{
+    height:100px;
+    width:339px;
+    }
+.optioncontainer{
+    height: 90px;
+    gap: 11px;
+    width:302px;
+}
+.optionnav{
+    width: 351px;
+    gap: 310px;
+    margin-top:27px;
+}
+.next{
+    height:68px;
+}
+
 }
