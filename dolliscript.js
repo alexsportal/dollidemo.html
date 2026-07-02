@@ -909,25 +909,90 @@ function updateDollDropdown() {
 }
 
 function saveAsImage() {
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    canvas.width = 370 * scale;
+    canvas.height = 455 * scale;
+    const ctx = canvas.getContext('2d');
+
+    // draw background
     const parlour = document.getElementById('beautyparlour');
-    html2canvas(parlour, {
-        useCORS: true,
-        allowTaint: true,
-        scale: 2,
-        width: parlour.offsetWidth,
-        height: parlour.offsetHeight,
-        scrollX: 0,
-        scrollY: 0,
-        x: 0,
-        y: 0,
-        logging: false,
-        ignoreElements: (el) => {
-            return el.id === 'banner' || el.id === 'menu';
-        }
-    }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'my-dolli.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+    const bgColor = parlour.style.backgroundColor;
+    const bgImage = parlour.style.backgroundImage;
+
+    if (bgColor && bgColor !== 'initial' && bgColor !== '') {
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    if (bgImage && bgImage !== 'none' && bgImage !== '') {
+        const bgUrl = bgImage.replace(/url\(["']?/, '').replace(/["']?\)/, '');
+        const bgImg = new Image();
+        bgImg.crossOrigin = 'anonymous';
+        bgImg.onload = () => drawLayers(ctx, canvas, bgImg, scale);
+        bgImg.src = bgUrl;
+    } else {
+        drawLayers(ctx, canvas, null, scale);
+    }
+}
+
+function drawLayers(ctx, canvas, bgImg, scale) {
+    if (bgImg) {
+        ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+    }
+
+    // collect all visible game images in DOM order
+    const selectors = [
+        '.skins', '.blushes', '.nosedark', '.noselight',
+        '.darkeyes', '.lighteyes', '.eyebrows', '.lips',
+        '.hairstyles', '.tops'
+    ];
+
+    const visibleImgs = [];
+    selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(img => {
+            if (img.style.display === 'block') visibleImgs.push(img);
+        });
     });
+
+    // also grab visible skin details
+    document.querySelectorAll('.skindetails img').forEach(img => {
+        if (img.style.display === 'block') visibleImgs.push(img);
+    });
+
+    let loaded = 0;
+    if (visibleImgs.length === 0) exportCanvas(canvas);
+
+    visibleImgs.forEach(img => {
+        const newImg = new Image();
+        newImg.crossOrigin = 'anonymous';
+        newImg.onload = () => {
+            // your images are 1000x410 centered on a 370x455 canvas
+            const drawW = 1000 * scale;
+            const drawH = 410 * scale;
+            const drawX = (canvas.width - drawW) / 2;
+            const drawY = (canvas.height * 0.55) - (drawH / 2);
+
+            ctx.save();
+            ctx.globalAlpha = parseFloat(img.style.opacity || 1);
+            if (img.style.filter && img.style.filter.includes('hue-rotate')) {
+                // apply filter via canvas filter if supported
+                ctx.filter = img.style.filter;
+            }
+            ctx.drawImage(newImg, drawX, drawY, drawW, drawH);
+            ctx.restore();
+            ctx.filter = 'none';
+
+            loaded++;
+            if (loaded === visibleImgs.length) exportCanvas(canvas);
+        };
+        newImg.src = img.src;
+    });
+}
+
+function exportCanvas(canvas) {
+    const link = document.createElement('a');
+    link.download = 'my-dolli.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
