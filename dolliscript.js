@@ -4,8 +4,8 @@ let currentBrowColor = "black";
 let currentLipColor = "brown";
 let currentBlushColor = "dark";
 let currentHairId = "basehair";
-let currentBrowId = "browshape2";
-let currentNoseId = "noseshape3";
+let currentBrowId = "browshape1";
+let currentNoseId = "noseshape2";
 let currentLipId = "lipshape1";
 let currentEyeId = "shape-doe";
 let currentBlushId = "blush1";
@@ -676,12 +676,6 @@ function goToSection(index) {
       }
     });
   }
-}
-
-// ─── SAVE IMAGE ────────────────────────────────────────────────
-
-function saveImage() {
-  window.print();
 }
 
 // ─── ON LOAD ───────────────────────────────────────────────────

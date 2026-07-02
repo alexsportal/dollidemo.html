@@ -1063,8 +1063,8 @@ span{
     font-size: small;
     margin-top: 280px;
     margin-left: 15px;
-    color: #984d73;
-    text-shadow: 0 0 8px #aca5a6;
+    color: #ffffff;
+    text-shadow: 0 0 3px #290040;
     font-family: 'zainbold';
 }
 
@@ -1087,7 +1087,7 @@ span{
     padding-right: 5px;
     height: 78px;
     flex: auto;
-    background: linear-gradient(180deg, #AA6E82 0%, #A35B7E 44.06%, #964B71 47.89%, #A45F82 93.86%);
+    background: linear-gradient(90deg, #AA6E82 0%, #A35B7E 44.06%, #964B71 47.89%, #A45F82 93.86%);
     border-radius: 6px;
     border-bottom: #984871 solid 3px;
     display: flex;

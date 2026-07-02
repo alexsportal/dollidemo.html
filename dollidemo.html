@@ -18,67 +18,9 @@
 
 
 
-<style media="print">
-* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-html, body {
-    height: 455px !important;
-    width: 300px !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-  body * { visibility: hidden; }
-  #beautyparlour, #beautyparlour * { visibility: visible; }
-  #beautyparlour {
-    position: fixed;
-    top: 0;
-    left: -70px;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    width: 370px !important;
-    height: 455px !important;
-    overflow: hidden !important;
-}
-  #colors { display: none !important; }
-  #menu { display: none !important; }
-  #banner { display: none !important; }
-  @page {
-    size: 300px 455px;
-    margin: 0;
-  }
+<style>
 
-  img.skins,
-img.darkeyes,
-img.lighteyes,
-img.nosedark,
-img.noselight,
-img.eyebrows,
-img.hairstyles,
-img.lips,
-img.blushes,
-img.tops{
-    width: 1000px;
-    height: 410px;
-    object-fit: cover;
-    object-position: top;
-    position: absolute;
-    top: 55%;
-    left:60%;
-    transform: translate(-50%, -50%);
-    margin:auto;
   
-
-}
-
-img.blushes{
-    z-index:0;
-}
-img.hairstyles{
-    margin-left: -.3px;
-    z-index: 1;
-}
-
 
 
 </style>
@@ -521,7 +463,7 @@ img.hairstyles{
                         </div>
                     </div>
 
-                    <div onClick="saveImage()" class="menubutton" style="width:55px;"><u>I</u>mage</div>
+                    
                 <div class="menubutton" onclick="this.classList.toggle('open')" style="width:45px;padding-left:7px"><u>M</u>usic
                 <div class="menuoverlay">
                 <div class="menusongs"  onclick="playSong('song1', this)">"Glossy"</div>
@@ -550,8 +492,8 @@ img.hairstyles{
                 </div>
 
                 <div class="skindetails"> 
-                <img src="DressupGame_Assets/Bodies/Details/freckles.png" class="skins"/>
-                <img src="DressupGame_Assets/Bodies/Details/undereyeshadow.png" class="skins"/>
+                <img src="DressupGame_Assets/Bodies/Details/freckles.png" class="skins" style="filter: saturate(2)"/>
+                <img src="DressupGame_Assets/Bodies/Details/undereyeshadow.png" class="skins" style="top:55.3%; left:60.2%;filter: saturate(2)"/>
                 <img src="DressupGame_Assets/Bodies/Details/dimples.png" class="skins"/>                
                 <img src="DressupGame_Assets/Bodies/Details/lipmark.png" class="skins"/>
                 <img src="DressupGame_Assets/Bodies/Details/lefteyemark.png" class="skins"/>
@@ -655,7 +597,7 @@ img.hairstyles{
 
                 <div class="eyeshape" id="shape-almond">
                     <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_blue.png" class="darkeyes"/>
-                     <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_purple.png" class="darkeyes"/>
+                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_purple.png" class="darkeyes"/>
                     <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_green.png" class="darkeyes"/>
                     <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_brown.png"  class="darkeyes"/>
                     <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_blue.png" class="lighteyes"/>
@@ -672,14 +614,14 @@ img.hairstyles{
 
                 <div class="brows">
                     <div class="browshape" id="browshape1">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows1black.png" class="eyebrows"/>
+                    <img src="DressupGame_Assets/Beauty/Brows/brows1black.png" style="display:block" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows1brown.png" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows1blonde.png" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows1orange.png" class="eyebrows"/>
                     </div>
                 
                     <div class="browshape" id="browshape2">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows2black.png" style="display:block" class="eyebrows"/>
+                    <img src="DressupGame_Assets/Beauty/Brows/brows2black.png" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows2brown.png" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows2blonde.png" class="eyebrows"/>
                     <img src="DressupGame_Assets/Beauty/Brows/brows2orange.png" class="eyebrows"/>
@@ -719,12 +661,12 @@ img.hairstyles{
 
                 <div class="noses" style="margin-top: 175px; position: relative;">
                 <div class="noseshape" id="noseshape3" style="position: relative;margin-top: -2px;">
-                <img loading="lazy" style="display:block" src="DressupGame_Assets/Beauty/Nose/nose3_dark.png" class="nosedark"/>
+                <img src="DressupGame_Assets/Beauty/Nose/nose3_dark.png" class="nosedark"/>
                 <img src="DressupGame_Assets/Beauty/Nose/nose3_light.png" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape2" style="position: relative;margin-left: 2px;margin-top:-1px;">
-                <img src="DressupGame_Assets/Beauty/Nose/nose2_dark.png"  class="nosedark"/>
+                <img src="DressupGame_Assets/Beauty/Nose/nose2_dark.png" style="display:block" class="nosedark"/>
                 <img src="DressupGame_Assets/Beauty/Nose/nose2_light.png" style="filter: opacity(0.8);" class="noselight"/>
                 </div>
 
@@ -766,7 +708,7 @@ img.hairstyles{
                 <!--LIPS-->
 
                 <div class="lipgroup">
-                <div class="lipshape" id="lipshape1" style="position: relative;margin-left: -1pxpx;margin-top: -3px;">
+                <div class="lipshape" id="lipshape1" style="position: relative;margin-left: -1px;margin-top: -3px;">
                 <img src="DressupGame_Assets/Beauty/Lips/lips1brown.png" style="display:block" class="lips"/>
                 <img src="DressupGame_Assets/Beauty/Lips/lips1plum.png" class="lips"/>
                 <img src="DressupGame_Assets/Beauty/Lips/lips1coral.png" class="lips"/>
