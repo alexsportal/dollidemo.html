@@ -909,9 +909,22 @@ function updateDollDropdown() {
 }
 
 function saveAsImage() {
-    html2canvas(document.getElementById('beautyparlour'), {
-    useCORS: true
-}).then(canvas => {
+    const parlour = document.getElementById('beautyparlour');
+    html2canvas(parlour, {
+        useCORS: true,
+        allowTaint: true,
+        scale: 2,
+        width: parlour.offsetWidth,
+        height: parlour.offsetHeight,
+        scrollX: 0,
+        scrollY: 0,
+        x: 0,
+        y: 0,
+        logging: false,
+        ignoreElements: (el) => {
+            return el.id === 'banner' || el.id === 'menu';
+        }
+    }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'my-dolli.png';
         link.href = canvas.toDataURL('image/png');
