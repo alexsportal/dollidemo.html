@@ -948,4 +948,32 @@ function updateDollDropdown() {
         overlay.appendChild(row);
     });
 }
+function preloadImage(src) {
+    const img = new Image();
+    img.src = src;
+}
 
+window.onerror = function() {
+    document.getElementById("erroroverlay").style.display = "flex";
+    return true;
+};
+
+let isZoomed = false;
+
+function toggleZoom() {
+    const imgs = document.querySelectorAll(".skins, .darkeyes, .lighteyes, .nosedark, .noselight, .eyebrows, .hairstyles, .lips, .blushes, .tops");
+    imgs.forEach(img => {
+        if (isZoomed) {
+            img.style.width = "1000px";
+            img.style.height = "410px";
+            img.style.left = "60%";
+            img.style.transform = "translate(-50%, -50%)";
+        } else {
+            img.style.width = "732px";
+            img.style.height = "410px";
+            img.style.left = "60%";
+            img.style.transform = "translate(-50%, -37%)";
+        }
+    });
+    isZoomed = !isZoomed;
+}

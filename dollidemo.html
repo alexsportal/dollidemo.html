@@ -27,6 +27,9 @@
 </head>
 
 <body>
+<div id="erroroverlay" style="display:none;">
+    <p>Oops! Something went wrong. <span onclick="location.reload()">Tap to restart.</span></p>
+</div>
 
 <div id="infooverlay" style="display:none;">
 
@@ -473,6 +476,8 @@
                 </div>
                 </div>
 
+                <div onclick="toggleZoom()" class="menubutton">Zoom</div>
+
                 <div class="musictoggle" onclick="toggleMute(this)">
                   <div id="pause"></div>
                   <div id="play"></div>
@@ -492,118 +497,118 @@
                 </div>
 
                 <div class="skindetails"> 
-                <img src="DressupGame_Assets/Bodies/Details/freckles.png" class="skins" style="filter: saturate(2)"/>
-                <img src="DressupGame_Assets/Bodies/Details/undereyeshadow.png" class="skins" style="top:55.3%; left:60.2%;filter: saturate(2)"/>
-                <img src="DressupGame_Assets/Bodies/Details/dimples.png" class="skins"/>                
-                <img src="DressupGame_Assets/Bodies/Details/lipmark.png" class="skins"/>
-                <img src="DressupGame_Assets/Bodies/Details/lefteyemark.png" class="skins"/>
-                <img src="DressupGame_Assets/Bodies/Details/righteyemark.png" class="skins"/>
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/freckles.png" class="skins" style="filter: saturate(2)"/>
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/undereyeshadow.png" class="skins" style="top:55.3%; left:60.2%;filter: saturate(2)"/>
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/dimples.png" class="skins"/>                
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/lipmark.png" class="skins"/>
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/lefteyemark.png" class="skins"/>
+                <img loading="lazy" src="DressupGame_Assets/Bodies/Details/righteyemark.png" class="skins"/>
                 </div>
 
                 <!--EYES-->
                 <div class="eyes">
                 <div class="eyeshape" id="shape-doe">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_brown.png" style="display:block" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_brown.png"  class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_brown.png" style="display:block" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/doe_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/doe_eyes_light_brown.png"  class="lighteyes"/>
                     
                 </div>
 
                
 
                 <div class="eyeshape" id="shape-sultry">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_blue.png" class="darkeyes"/>
-                     <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_blue.png" class="darkeyes"/>
+                     <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/sultry_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/sultry_eyes_light_brown.png" class="lighteyes"/>
                 </div>
                     
 
 
                <div class="eyeshape" id="shape-cat">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cat_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cat_eyes_light_brown.png" class="lighteyes"/>
                 </div>
 
                 <div class="eyeshape" id="shape-cool">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/cool_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/cool_eyes_light_brown.png" class="lighteyes"/>
                 </div>
 
                 <div class="eyeshape" id="shape-droop">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/droop_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/droop_eyes_light_brown.png" class="lighteyes"/>
                 </div>
                 
                 <div class="eyeshape" id="shape-hooded">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_green.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_brown.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/hooded_eyes_dark_green.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/hooded_eyes_light_brown.png" class="lighteyes"/>
                 </div>
 
                 <div class="eyeshape" id="shape-joy">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/joy_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/joy_eyes_light_brown.png" class="lighteyes"/>
                 </div>
 
                 <div class="eyeshape" id="shape-innocent">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/innocent_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/innocent_eyes_light_brown.png" class="lighteyes"/>
                 </div> 
 
                 <div class="eyeshape" id="shape-almond">
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_blue.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_purple.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_green.png" class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_brown.png"  class="darkeyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_blue.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_purple.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_green.png" class="lighteyes"/>
-                    <img src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_brown.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_blue.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_purple.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_green.png" class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/darkeyes/almond_eyes_dark_brown.png"  class="darkeyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_blue.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_purple.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_green.png" class="lighteyes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Eyes/lighteyes/almond_eyes_light_brown.png" class="lighteyes"/>
                 </div>
                 </div>
 
@@ -614,45 +619,45 @@
 
                 <div class="brows">
                     <div class="browshape" id="browshape1">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows1black.png" style="display:block" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows1brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows1blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows1orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows1black.png" style="display:block" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows1brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows1blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows1orange.png" class="eyebrows"/>
                     </div>
                 
                     <div class="browshape" id="browshape2">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows2black.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows2brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows2blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows2orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows2black.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows2brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows2blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows2orange.png" class="eyebrows"/>
                     </div>
 
                     <div class="browshape" id="browshape3">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows3black.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows3brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows3blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows3orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows3black.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows3brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows3blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows3orange.png" class="eyebrows"/>
                     </div>
 
                     <div class="browshape" id="browshape4">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows4black.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows4brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows4blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows4orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows4black.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows4brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows4blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows4orange.png" class="eyebrows"/>
                     </div>
 
                     <div class="browshape" id="browshape5">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows5black.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows5brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows5blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows5orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows5black.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows5brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows5blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows5orange.png" class="eyebrows"/>
                     </div>
 
                     <div class="browshape" id="browshape6">
-                    <img src="DressupGame_Assets/Beauty/Brows/brows6black.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows6brown.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows6blonde.png" class="eyebrows"/>
-                    <img src="DressupGame_Assets/Beauty/Brows/brows6orange.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows6black.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows6brown.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows6blonde.png" class="eyebrows"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Brows/brows6orange.png" class="eyebrows"/>
                     </div>
 
                 </div>
@@ -661,33 +666,33 @@
 
                 <div class="noses" style="margin-top: 175px; position: relative;">
                 <div class="noseshape" id="noseshape3" style="position: relative;margin-top: -2px;">
-                <img src="DressupGame_Assets/Beauty/Nose/nose3_dark.png" class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose3_light.png" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose3_dark.png" class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose3_light.png" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape2" style="position: relative;margin-left: 2px;margin-top:-1px;">
-                <img src="DressupGame_Assets/Beauty/Nose/nose2_dark.png" style="display:block" class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose2_light.png" style="filter: opacity(0.8);" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose2_dark.png" style="display:block" class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose2_light.png" style="filter: opacity(0.8);" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape4" style="position: relative;margin-top:-1px;">
-                <img src="DressupGame_Assets/Beauty/Nose/nose4_dark.png"  class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose4_light.png" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose4_dark.png"  class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose4_light.png" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape5">
-                <img src="DressupGame_Assets/Beauty/Nose/nose5_dark.png"  class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose5_light.png" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose5_dark.png"  class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose5_light.png" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape6">
-                <img src="DressupGame_Assets/Beauty/Nose/nose6_dark.png"  class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose6_light.png" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose6_dark.png"  class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose6_light.png" class="noselight"/>
                 </div>
 
                 <div class="noseshape" id="noseshape7" style="position: relative;margin-top:-1px;">
-                <img src="DressupGame_Assets/Beauty/Nose/nose7_dark.png"  class="nosedark"/>
-                <img src="DressupGame_Assets/Beauty/Nose/nose7_light.png" class="noselight"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose7_dark.png"  class="nosedark"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Nose/nose7_light.png" class="noselight"/>
                 </div>
 
 
@@ -697,9 +702,9 @@
 
                 <div  class="blush">
                     <div class="blushshape" id="blush1">
-                    <img src="DressupGame_Assets/Beauty/Makeup/Blush/blush_dark.png"  class="blushes"/>
-                    <img src="DressupGame_Assets/Beauty/Makeup/Blush/blush_medium.png"  class="blushes"/>
-                    <img src="DressupGame_Assets/Beauty/Makeup/Blush/blush_light.png"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush_dark.png"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush_medium.png"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush_light.png"  class="blushes"/>
                     </div>
                 </div>
 
@@ -709,46 +714,46 @@
 
                 <div class="lipgroup">
                 <div class="lipshape" id="lipshape1" style="position: relative;margin-left: -1px;margin-top: -3px;">
-                <img src="DressupGame_Assets/Beauty/Lips/lips1brown.png" style="display:block" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips1plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips1coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips1pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips1brown.png" style="display:block" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips1plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips1coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips1pink.png" class="lips"/>
                 </div>
 
                 <div class="lipshape" id="lipshape2" style="position: relative;margin-left: 4px;margin-top: -3px;">
-                <img src="DressupGame_Assets/Beauty/Lips/lips2brown.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips2plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips2coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips2pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips2brown.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips2plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips2coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips2pink.png" class="lips"/>
                 </div>
 
                 <div class="lipshape" id="lipshape3" style="position: relative;margin-top: -2px;">
-                <img src="DressupGame_Assets/Beauty/Lips/lips3brown.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips3plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips3coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips3pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips3brown.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips3plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips3coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips3pink.png" class="lips"/>
                 </div>
 
                 <div class="lipshape" id="lipshape4">
-                <img src="DressupGame_Assets/Beauty/Lips/lips4brown.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips4plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips4coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips4pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips4brown.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips4plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips4coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips4pink.png" class="lips"/>
                 </div>
 
 
                 <div class="lipshape" id="lipshape5">
-                <img src="DressupGame_Assets/Beauty/Lips/lips5brown.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips5plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips5coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips5pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips5brown.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips5plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips5coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips5pink.png" class="lips"/>
                 </div>
 
                 <div class="lipshape" id="lipshape6">
-                <img src="DressupGame_Assets/Beauty/Lips/lips6brown.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips6plum.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips6coral.png" class="lips"/>
-                <img src="DressupGame_Assets/Beauty/Lips/lips6pink.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips6brown.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips6plum.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips6coral.png" class="lips"/>
+                <img loading="lazy" src="DressupGame_Assets/Beauty/Lips/lips6pink.png" class="lips"/>
                 </div>
                 </div>
 
@@ -822,73 +827,73 @@
                 
                 <!--TOPS-->
 
-                <div class="tops">
+                <div class="clothes">
 
                     <div class="topstyle" id="tubetop">
 
-                    <img src="DressupGame_Assets/Clothes/Under/tubetoppink.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopred.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopyellow.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopgreen.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopblue.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetoppurple.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopmagenta.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopbrown.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopwhite.png" style="display:block;" class="tops"/>       
-                    <img src="DressupGame_Assets/Clothes/Under/tubetopblack.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetoppink.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopred.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopyellow.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopgreen.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopblue.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetoppurple.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopmagenta.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopbrown.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopwhite.png" style="display:block;" class="tops"/>       
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tubetopblack.png" class="tops"/>
        
                     </div>
                   
                     <div class="topstyle" id="tank1">
-                    <img src="DressupGame_Assets/Clothes/Under/tank1pink.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1red.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1yellow.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1green.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1blue.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1purple.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tank1magenta.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tank1brown.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank1white.png"  class="tops"/>       
-                    <img src="DressupGame_Assets/Clothes/Under/tank1black.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1pink.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1red.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1yellow.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1green.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1blue.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1purple.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1magenta.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1brown.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1white.png"  class="tops"/>       
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank1black.png" class="tops"/>
                     </div>
                     
                     <div class="topstyle" id="tank2">
-                    <img src="DressupGame_Assets/Clothes/Under/tank2pink.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2red.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2yellow.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2green.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2blue.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2purple.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tank2magenta.PNG" class="tops"/> 
-                    <img src="DressupGame_Assets/Clothes/Under/tank2brown.PNG" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Under/tank2white.png" class="tops"/>       
-                    <img src="DressupGame_Assets/Clothes/Under/tank2black.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2pink.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2red.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2yellow.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2green.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2blue.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2purple.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2magenta.PNG" class="tops"/> 
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2brown.PNG" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2white.png" class="tops"/>       
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Under/tank2black.png" class="tops"/>
                     </div>
 
                     <div class="topstyle" id="buttonup">
-                    <img src="DressupGame_Assets/Clothes/Tops/pinkbuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/redbuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/yellowbuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/greenbuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/bluebuttonup.png" class="tops"/>                    
-                    <img src="DressupGame_Assets/Clothes/Tops/purplebuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/magentabuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/brownbuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/whitebuttonup.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/blackbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/pinkbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/redbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/yellowbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/greenbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/bluebuttonup.png" class="tops"/>                    
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/purplebuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/magentabuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/brownbuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/whitebuttonup.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/blackbuttonup.png" class="tops"/>
                     </div>
 
                     <div class="topstyle" id="cardigan">
-                    <img src="DressupGame_Assets/Clothes/Tops/pinkcardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/redcardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/yellowcardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/greencardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/bluecardigan.png" class="tops"/>                    
-                    <img src="DressupGame_Assets/Clothes/Tops/purplecardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/magentacardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/browncardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/whitecardigan.png" class="tops"/>
-                    <img src="DressupGame_Assets/Clothes/Tops/blackcardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/pinkcardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/redcardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/yellowcardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/greencardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/bluecardigan.png" class="tops"/>                    
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/purplecardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/magentacardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/browncardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/whitecardigan.png" class="tops"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Tops/blackcardigan.png" class="tops"/>
                     </div>
 
 
