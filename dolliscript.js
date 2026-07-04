@@ -1,3 +1,4 @@
+
 let currentEyeColor = "brown";
 let currentHairColor = "black";
 let currentBrowColor = "black";
@@ -151,10 +152,25 @@ function skinSlides(n) {
 
   for (let i = 0; i < skin.length; i++) skin[i].style.display = "none";
   for (let i = 0; i < skincolorsDisplay.length; i++) skincolorsDisplay[i].style.display = "none";
-  for (let i = 0; i < dots.length; i++) dots[i].classList.remove("active");
+  for (let i = 0; i < dots.length; i++) {
+    const onclick = dots[i].getAttribute("onclick") || "";
+    if (!onclick.includes("changeSkinDetail")) {
+        dots[i].classList.remove("active");
+    }
+}
 
   skin[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
+  let skintoneIndex = 0;
+  for (let i = 0; i < dots.length; i++) {
+      const onclick = dots[i].getAttribute("onclick") || "";
+      if (!onclick.includes("changeSkinDetail")) {
+          if (skintoneIndex === slideIndex - 1) {
+              dots[i].classList.add("active");
+              break;
+          }
+          skintoneIndex++;
+      }
+  }
   skincolorsDisplay[slideIndex - 1].style.display = "block";
 
   updateEyesForSkin(slideIndex);
@@ -589,7 +605,14 @@ function showColorOptions(category) {
     if (skinDisplays[slideIndex - 1]) skinDisplays[slideIndex - 1].style.display = "block";
   }
   if (category === "eyes")  showEyeColorDisplay(currentEyeColor);
-  if (category === "blush") showBlushColorDisplay(currentBlushColor);
+if (category === "blush" || category === "makeup") {
+    const blushOn = document.getElementById(currentBlushId)?.style.display === "block";
+    if (blushOn) {
+        showBlushColorDisplay(currentBlushColor);
+        setOutline("blush", blushColorMap[currentBlushColor] ?? 0);
+        document.querySelectorAll('.coloroption[data-category="blush"]').forEach(el => el.style.display = "block");
+    }
+}
   if (category === "hairs") document.getElementById("colorpicker").value = currentHairHue;
   if (category === "brows") document.getElementById("colorpicker").value = currentBrowHue;
   if (category === "lips")  document.getElementById("colorpicker").value = currentLipHue;
@@ -621,12 +644,20 @@ function goToSection(index) {
 
   showColorOptions(category);
 
-  if (category === "skin") {
+if (category === "skin") {
     setOutline("skin", slideIndex - 1);
     document.querySelectorAll(".beautyoptionsskin").forEach((el, i) => {
-      el.classList.toggle("active", i === slideIndex - 1);
+        const onclick = el.getAttribute("onclick") || "";
+        if (onclick.includes("changeSkinDetail")) {
+            const match = onclick.match(/'([^']+)'/);
+            if (match) {
+                el.classList.toggle("active", activeSkinDetails.has(match[1]));
+            }
+        } else if (onclick.includes("changeSkin")) {
+            el.classList.toggle("active", i === slideIndex - 1);
+        }
     });
-  }
+}
   if (category === "eyes") {
     setOutline("eyes", eyeColorMap[currentEyeColor] ?? 2);
     document.querySelectorAll(".beautyoptionseyes").forEach(el => {
@@ -678,6 +709,14 @@ function goToSection(index) {
   }
 }
 
+function scrollOptions(direction) {
+    const container = document.querySelector(".itemcontainer[style*='block'] .optioncontainer");
+    if (!container) return;
+    const item = container.querySelector("div, img");
+    if (!item) return;
+    const itemWidth = item.offsetWidth + 6; // 6px for gap
+    container.scrollBy({ left: direction * itemWidth * 3, behavior: 'smooth' });
+}
 // ─── ON LOAD ───────────────────────────────────────────────────
 
 window.onload = function () {
@@ -703,6 +742,8 @@ window.onload = function () {
   document.querySelectorAll(".blushshape").forEach(s => s.style.display = "none");
   document.getElementById(currentBlushId).style.display = "none";
   document.getElementById(currentBlushId).querySelectorAll(".blushes").forEach(img => img.style.display = "none");
+
+  document.querySelectorAll(".beautyoptionsmakeup").forEach(el => el.classList.remove("active"));
 
   document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
   document.getElementById(currentTopId).style.display = "block";
@@ -736,6 +777,12 @@ setTimeout(function() {
     overlay.style.display = 'none';
   }, 400);
 }, 2500); 
+
+document.querySelectorAll(".beautyoptionsskin").forEach(el => {
+    if (el.getAttribute("onclick")?.includes("changeSkinDetail")) {
+        el.classList.remove("active");
+    }
+});
 
 updateDollDropdown();
 }; 

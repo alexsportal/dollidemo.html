@@ -280,7 +280,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #561a39;
+    color: #ffffff;
+    text-shadow: 0 0 3px #6b2248;
 }
 
 #options{
@@ -306,7 +307,7 @@ body{
 .optioncontainer{
     padding: 0;
     height: 108px;
-    width: 330px;
+    width: 329px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -314,7 +315,7 @@ body{
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     border-radius: 5px;
-    gap: 10px;
+    gap: 9px;
     margin: auto;
 }
 
@@ -328,11 +329,7 @@ body{
     display: block;
     border-radius: 10px;
     margin: auto;
-    border:1px solid #c99fb2;
-    background: linear-gradient(180deg, #dfb5c5 20.19%, #BE9CA7 67.31%, #BD879E 100%);
-    box-shadow: 2px 4px 15px -8px #412b55;
-    -webkit-box-shadow: 2px 4px 15px -8px #412b55;
-    -moz-box-shadow: 2px 4px 15px -8px #412b55;
+  
 }
 
 
@@ -520,6 +517,8 @@ body{
     cursor:pointer;
 }
 
+
+
 .active,
 .beautyoptionsskin:hover,
 .beautyoptionseyes:hover,
@@ -532,7 +531,8 @@ body{
 .beautyoptionstops:hover,
 .beautyoptionsbg:hover{
    background-color: #d3dae5;
-   border-bottom: #ac5883 2px solid;
+    border-bottom: #ac5883 2px solid;
+  
 }
 
 
@@ -1116,12 +1116,12 @@ span{
 @media screen and (max-width:396px){
 .padding{
     height:100px;
-    width:339px;
+    width:342px;
     }
 .optioncontainer{
     height: 90px;
-    gap: 11px;
-    width:302px;
+    gap: 9px;
+    width: 297px;
 }
 .optionnav{
     width: 351px;
