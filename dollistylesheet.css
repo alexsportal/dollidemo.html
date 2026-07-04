@@ -518,8 +518,6 @@ body{
 }
 
 
-
-.active,
 .beautyoptionsskin:hover,
 .beautyoptionseyes:hover,
 .beautyoptionsbrows:hover,
@@ -530,11 +528,33 @@ body{
 .beautyoptionsjewelry:hover,
 .beautyoptionstops:hover,
 .beautyoptionsbg:hover{
-   background-color: #d3dae5;
-    border-bottom: #ac5883 2px solid;
-  
+    background-color: rgba(123, 63, 110, 0.2);
 }
 
+.beautyoptionsskin.active,
+.beautyoptionseyes.active,
+.beautyoptionsbrows.active,
+.beautyoptionsnose.active,
+.beautyoptionslips.active,
+.beautyoptionshair.active,
+.beautyoptionsmakeup.active,
+.beautyoptionsjewelry.active,
+.beautyoptionstops.active,
+.beautyoptionsbg.active{
+
+   border:#96476f solid 2px;
+   box-sizing: border-box;
+}
+
+.beautyoptionsmakeup.selected,
+.beautyoptionsjewelry.selected,
+.beautyoptionstops.selected{
+    background-color: rgba(123, 63, 110, 0.2);
+}
+
+.active{
+    border-bottom: #ac5883 2px solid;
+}
 
 @media screen and (max-width:396px){
 .beautyoptionsskin{

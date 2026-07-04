@@ -10,6 +10,7 @@ let currentNoseId = "noseshape2";
 let currentLipId = "lipshape1";
 let currentEyeId = "shape-doe";
 let currentBlushId = "blush1";
+let activeTopIds = new Set(["tubetop"]);
 let currentTopId = "tubetop";
 let currentTopColor = "white";
 let currentLipHue = 0;
@@ -400,10 +401,12 @@ function changeBlushShape(shapeId, el) {
   const isVisible = shape.style.display === "block";
 
   if (isVisible) {
+    if (selectedMakeupEl === el) setSelectedMakeup(null);
     shape.querySelectorAll(".blushes").forEach(img => img.style.display = "none");
     shape.style.display = "none";
     el.classList.remove("active");
   } else {
+    setSelectedMakeup(el);
     shape.style.display = "block";
     currentBlushId = shapeId;
     updateBlushColor(currentBlushColor);
@@ -471,38 +474,44 @@ function changeSkinDetail(detailId, el) {
 // ─── TOPS ──────────────────────────────────────────────────────
 
 function changeTopShape(shapeId, el) {
+    saveState();
+    const shape = document.getElementById(shapeId);
+    const isVisible = shape.style.display === "block";
 
-  saveState();
-  const shape = document.getElementById(shapeId);
-  const isVisible = shape.style.display === "block";
-  if (isVisible) {
-    shape.style.display = "none";
-    el.classList.remove("active");
-
-    if (currentTopId === shapeId) {
-      currentTopId = null;
-      currentTopColor = "white";
+    if (isVisible) {
+        shape.style.display = "none";
+        el.classList.remove("active");
+        activeTopIds.delete(shapeId);
+        if (currentTopId === shapeId) {
+            // switch editing to another active top if one exists
+            currentTopId = activeTopIds.size > 0 ? [...activeTopIds][0] : null;
+            const newEl = currentTopId 
+                ? document.querySelector(`.beautyoptionstops[onclick*="${currentTopId}"]`) 
+                : null;
+            setSelectedTop(newEl);
+        }
+    } else {
+        shape.style.display = "block";
+        activeTopIds.add(shapeId);
+        currentTopId = shapeId;
+        updateTopColor(currentTopColor);
+        el.classList.add("active");
+        setSelectedTop(el);
+        showColorOptions("tops");
+        showTopsColorDisplay(currentTopColor);
+        setOutline("tops", topColorMap[currentTopColor] ?? 8);
     }
-  } else {
-    shape.style.display = "block";
-    currentTopId = shapeId;
-    updateTopColor(currentTopColor);
-    el.classList.add("active");
-    showColorOptions("tops");
-    showTopsColorDisplay(currentTopColor);
-    setOutline("tops", topColorMap[currentTopColor] ?? 8);
-  }
 }
 
 function changeTopColor(color, el) {
-
-  saveState();
-  const activeTop = document.getElementById(currentTopId);
-  activeTop?.querySelectorAll("img").forEach(img => img.style.filter = "");
-  document.querySelectorAll('.coloroption[data-category="tops"]').forEach(dot => dot.classList.remove("outline"));
-  el.classList.add("outline");
-  updateTopColor(color);
-  currentTopHue = 0;
+    saveState();
+    if (!currentTopId) return;
+    const activeTop = document.getElementById(currentTopId);
+    activeTop?.querySelectorAll("img").forEach(img => img.style.filter = "");
+    document.querySelectorAll('.coloroption[data-category="tops"]').forEach(dot => dot.classList.remove("outline"));
+    el.classList.add("outline");
+    updateTopColor(color);
+    currentTopHue = 0;
 }
 
 function updateTopColor(color) {
@@ -744,7 +753,15 @@ window.onload = function () {
   document.getElementById(currentBlushId).querySelectorAll(".blushes").forEach(img => img.style.display = "none");
 
   document.querySelectorAll(".beautyoptionsmakeup").forEach(el => el.classList.remove("active"));
-
+  document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
+  document.getElementById("tubetop").style.display = "block";
+  activeTopIds = new Set(["tubetop"]);
+  updateTopColor(currentTopColor);
+  const defaultTopEl = document.querySelector(".beautyoptionstops[onclick*='tubetop']");
+  if (defaultTopEl) {
+      defaultTopEl.classList.add("active");
+      setSelectedTop(defaultTopEl);
+  }
   document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
   document.getElementById(currentTopId).style.display = "block";
 
@@ -757,6 +774,8 @@ window.onload = function () {
   updateBrowColor(currentBrowColor);
   updateLipColor(currentLipColor);
   updateTopColor(currentTopColor);
+  const defaultTop = document.querySelector(".beautyoptionstops");
+  if (defaultTop) setSelectedTop(defaultTop);
   updateEyesForSkin(slideIndex);
   updateNosesForSkin(slideIndex);
 
@@ -976,4 +995,27 @@ function toggleZoom() {
         }
     });
     isZoomed = !isZoomed;
+}
+
+let selectedTopEl = null;
+
+function setSelectedTop(el) {
+    if (selectedTopEl) selectedTopEl.classList.remove("selected");
+    selectedTopEl = el;
+    if (el) el.classList.add("selected");
+}
+let selectedMakeupEl = null;
+
+function setSelectedMakeup(el) {
+    if (selectedMakeupEl) selectedMakeupEl.classList.remove("selected");
+    selectedMakeupEl = el;
+    if (el) el.classList.add("selected");
+}
+
+let selectedJewelryEl = null;
+
+function setSelectedJewelry(el) {
+    if (selectedJewelryEl) selectedJewelryEl.classList.remove("selected");
+    selectedJewelryEl = el;
+    if (el) el.classList.add("selected");
 }
