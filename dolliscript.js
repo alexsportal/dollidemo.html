@@ -848,11 +848,11 @@ function saveCurrentDoll() {
         currentNoseId: currentNoseId,
         currentBlushId: currentBlushId,
         currentBlushColor: currentBlushColor,
-        blushVisible: document.getElementById(currentBlushId)?.style.display === "block",
+        activeTopIds: [...activeTopIds],
         currentTopId: currentTopId,
+        blushVisible: document.getElementById(currentBlushId)?.style.display === "block",
         currentTopColor: currentTopColor,
         currentTopHue: currentTopHue,
-        topVisible: currentTopId ? document.getElementById(currentTopId)?.style.display === "block" : false,
         bgImage: document.getElementById("beautyparlour").style.backgroundImage,
         bgColor: document.getElementById("beautyparlour").style.backgroundColor,
         activeSkinDetails: [...activeSkinDetails],
@@ -870,7 +870,6 @@ function loadDoll(id) {
     const state = saved.find(d => d.id === parseInt(id));
     if (!state) return;
 
-    // restore everything the same way undo() does
     skinSlides(state.slideIndex);
 
     document.querySelectorAll(".eyeshape").forEach(s => s.style.display = "none");
@@ -910,14 +909,16 @@ function loadDoll(id) {
     if (state.blushVisible) updateBlushColor(state.currentBlushColor);
 
     document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
-    if (state.currentTopId && state.topVisible) {
-        currentTopId = state.currentTopId;
-        currentTopColor = state.currentTopColor;
-        document.getElementById(currentTopId).style.display = "block";
-        updateTopColor(state.currentTopColor);
-    }
+    activeTopIds = new Set(state.activeTopIds || []);
+    currentTopId = state.currentTopId;
+    activeTopIds.forEach(topId => {
+        const shape = document.getElementById(topId);
+        if (shape) shape.style.display = "block";
+        const el = document.querySelector(`.beautyoptionstops[onclick*="${topId}"]`);
+        if (el) el.classList.add("active");
+    });
+    if (currentTopId) updateTopColor(state.currentTopColor);
 
-    // restore skin details
     activeSkinDetails = new Set(state.activeSkinDetails || []);
     skinDetailOpacity = state.skinDetailOpacity || {};
     document.querySelectorAll('.skindetails img').forEach(img => img.style.display = 'none');
