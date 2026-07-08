@@ -794,8 +794,8 @@ setTimeout(function() {
   overlay.style.opacity = '0';
   setTimeout(function() {
     overlay.style.display = 'none';
-  }, 400);
-}, 2500); 
+  }, 200);
+}, 1500); 
 
 document.querySelectorAll(".beautyoptionsskin").forEach(el => {
     if (el.getAttribute("onclick")?.includes("changeSkinDetail")) {
