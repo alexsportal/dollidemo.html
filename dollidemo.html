@@ -451,8 +451,8 @@
                </div>
             </div>
             <div id="menu">
-                <div onClick="undo()" class="menubutton" style="width:45px;"><u>U</u>ndo</div>
-                <div onClick="saveCurrentDoll()" class="menubutton" style="width:35px;"><u>S</u>ave</div>
+                <div onClick="undo(); closeMenus();" class="menubutton" style="width:45px;"><u>U</u>ndo</div>
+                <div onClick="saveCurrentDoll(); closeMenus();" class="menubutton" style="width:35px;"><u>S</u>ave</div>
                     <div class="menubutton" data-menu="dolls" onclick="toggleMenu('dolls', this)" onmouseenter="hoverMenu('dolls', this)" style="width:45px;padding-left:7px"><u>D</u>olls
                         <div class="menuoverlay" id="dollsoverlay">
                         <div class="menusongs" style="color:#888;font-style:italic;">No saved Dolls</div>
@@ -465,11 +465,11 @@
                 <div class="menusongs"  onclick="playSong('song1', this)">"Glossy"</div>
                 <div class="menusongs" onclick="playSong('song2', this)">"On Point"</div>
                 <div class="menusongs"  onclick="playSong('song3', this)">"Threads"</div>
-               
+
                 </div>
                 </div>
 
-                <div onclick="toggleZoom()" class="menubutton">Zoom</div>
+                <div onclick="toggleZoom(); closeMenus();" class="menubutton">Zoom</div>
 
                 <div class="musictoggle" onclick="toggleMute(this)" role="img" aria-label="Audio toggle to turn music on or off.">
                   <div id="pause"></div>

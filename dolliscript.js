@@ -57,17 +57,27 @@ function toggleMenu(menuId, el) {
     const overlay = document.getElementById(menuId + 'overlay');
     if (!overlay) return;
 
-    if (openMenu && openMenu !== menuId) {
-        // close the previously open menu
-        document.getElementById(openMenu + 'overlay').style.display = 'none';
-        document.querySelector(`[data-menu="${openMenu}"]`)?.classList.remove('active');
-    }
-
     const isOpen = overlay.style.display === 'block';
-    overlay.style.display = isOpen ? 'none' : 'block';
-    el.classList.toggle('active', !isOpen);
-    openMenu = isOpen ? null : menuId;
-    menuHoverEnabled = !isOpen;
+
+    document.querySelectorAll('.menuoverlay').forEach(o => o.style.display = 'none');
+    document.querySelectorAll('.menubutton[data-menu]').forEach(b => b.classList.remove('active'));
+
+    if (!isOpen) {
+        overlay.style.display = 'block';
+        el.classList.add('active');
+        openMenu = menuId;
+        menuHoverEnabled = true;
+    } else {
+        openMenu = null;
+        menuHoverEnabled = false;
+    }
+}
+
+function closeMenus() {
+    document.querySelectorAll('.menuoverlay').forEach(o => o.style.display = 'none');
+    document.querySelectorAll('.menubutton[data-menu]').forEach(b => b.classList.remove('active'));
+    openMenu = null;
+    menuHoverEnabled = false;
 }
 
 function hoverMenu(menuId, el) {
