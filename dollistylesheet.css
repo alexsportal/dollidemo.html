@@ -302,7 +302,7 @@ body{
     font-size: 16px;
     width: auto;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -670,10 +670,15 @@ body{
     background-position-x: -72px;
     }
 .beautyoptionsmakeup{
-    width:93px;
-    height: 70px;
+    width: 93px;
+    height: 77px;
     background-position-y: -50px;
+    margin-top: 0px;
     }
+
+.optiontitle{
+    margin-top: -7px;
+}
 }
 
 
@@ -1212,7 +1217,8 @@ span{
     margin-top:30px;
 }
 .next{
-    height:66px;
+    height: 76px;
+    margin-top: -11px;
 }
 .inputcontainer{
     width:237px;
