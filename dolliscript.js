@@ -9,8 +9,8 @@ let currentNoseId = "noseshape2";
 let currentLipId = "lipshape1";
 let currentEyeId = "shape-doe";
 let currentBlushId = "blush1";
-let activeTopIds = new Set(["tubetop"]);
-let currentTopId = "tubetop";
+let activeTopIds = new Set(["bandeau"]);
+let currentTopId = "bandeau";
 let currentTopColor = "black";
 let currentLipHue = 0;
 let currentTopHue = 0;
@@ -993,10 +993,10 @@ window.onload = function () {
   document.querySelectorAll(".beautyoptionsmakeup").forEach(el => el.classList.remove("active"));
 
   document.querySelectorAll(".topstyle").forEach(s => s.style.display = "none");
-  document.getElementById("tubetop").style.display = "block";
-  activeTopIds = new Set(["tubetop"]);
+  document.getElementById("bandeau").style.display = "block";
+  activeTopIds = new Set(["bandeau"]);
   updateTopColor(currentTopColor);
-  const defaultTopEl = document.querySelector(".beautyoptionstops[onclick*='tubetop']");
+  const defaultTopEl = document.querySelector(".beautyoptionstops[onclick*='bandeau']");
   if (defaultTopEl) {
     defaultTopEl.classList.add("active");
     setSelectedTop(defaultTopEl);
