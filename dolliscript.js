@@ -1033,6 +1033,17 @@ window.onload = function () {
   }, 1500);
 
   updateDollDropdown();
+
+  let percent = 0;
+  const percentInterval = setInterval(() => {
+      percent += Math.floor(Math.random() * 10) + 3;
+      if (percent >= 100) {
+          percent = 100;
+          clearInterval(percentInterval);
+      }
+      document.getElementById("loadpercent").textContent = percent + "%";
+  }, 100);
+
 };
 
 // ─── SAVED DOLLS ───────────────────────────────────────────────
