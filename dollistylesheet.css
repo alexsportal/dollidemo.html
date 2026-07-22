@@ -359,7 +359,6 @@ body{
 }
 
 
-
 .beautyoptionsskin{
     width: 104px;
     z-index: 2;
@@ -875,7 +874,7 @@ img.blushes{
 
 img.hairstyles{
     margin-top: -0.3px;
-    z-index: 3;
+    z-index: 2;
 }
 
 img.jewelrystyle.earring{
@@ -883,9 +882,7 @@ img.jewelrystyle.earring{
     pointer-events: none;
 }
 
-img.jewelrystyle{
-    z-index: 2;
-}
+
 
 
 .eyeshape,
