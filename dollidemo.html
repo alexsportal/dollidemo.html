@@ -253,7 +253,10 @@
 <div class="topitemcontainer">
 <div id="colors">
     <div class="colordisplay">
+        <p class="activecolor">Active Color</p>
         <div class="front" >
+            <div id="frontcolor" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:3px;z-index:0;"></div>
+
             <!--SKIN COLOR DISPLAY-->
             <div class="skincolorsdisplay" style="background-color: #4c1c11; display:block;"></div>
             <div class="skincolorsdisplay" style="background-color: #65251c;"></div>
@@ -288,6 +291,7 @@
             <div class="blushcolorsdisplay" style="background-color: #530a1d;"></div>
             <div class="blushcolorsdisplay" style="background-color: #982f3f;"></div>
             <div class="blushcolorsdisplay" style="background-color: #c9486b;"></div>
+            <div class="blushcolorsdisplay" style="background-color: #930027;"></div>
 
             <!--BG COLOR DISPLAY-->
              <div class="bgcolorsdisplay" style="background-color: #c85187;"></div>
@@ -316,6 +320,11 @@
             <div class="topscolorsdisplay" style="background-color:#ffffff;"></div> 
             <div class="topscolorsdisplay" style="background-color:#000000;"></div>
 
+            <!--JEWELRY COLOR DISPLAY-->
+
+            <div class="jewelrycolorsdisplay-front" style="display:none; width:100%; height:100%; border-radius:3px;"></div>
+
+
             <div class="inputcontainer" style="display:none;">
             <p  style="display:none" class="inputlabel" id="huelabel">Colors</p><input type="range" id="colorpicker" min="0" max="360" step="1" value="0" style="display:none;" oninput="applyColorFilter(this.value)">  
             <p style="display:none" class="inputlabel" id="opacitylabel">Opacity</p><input type="range" id="opacitypicker" min="0" max="1" step="0.01" value="1" style="display:none;" oninput="applyOpacityFilter(this.value)">
@@ -328,7 +337,9 @@
 
 
 
-        <div class="back"></div>
+        <div class="back">
+                <div class="jewelrycolorsdisplay-back" style="display:none; width:100%; height:100%; border-radius:3px;"></div>
+        </div>
     </div>
 
     <div class="coloroptions">        
@@ -340,6 +351,9 @@
         <div onclick="changeBlushColor('dark', this)" class="coloroption" data-category="blush" style="background-color: #530a1d;"></div>
         <div onclick="changeBackgroundColor('#c85187', this)" class="coloroption" data-category="bg" style="background-color: #c85187;"></div>
         <div onclick="changeTopColor('pink', this)"   class="coloroption" data-category="tops" style="background-color:#e87fa0;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold" onclick="changeJewelryColor('gold', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#FFD700"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-red" onclick="changeJewelryColor('gold-red', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#CC0000"></div></div>
+
 
     </div>
        <div class="coloroptions">
@@ -351,6 +365,8 @@
         <div onclick="changeBlushColor('medium', this)" class="coloroption" data-category="blush" style="background-color: #982f3f;"></div>
         <div onclick="changeBackgroundColor('#881b34', this)" class="coloroption" data-category="bg" style="background-color: #881b34;"></div>
         <div onclick="changeTopColor('red', this)"    class="coloroption" data-category="tops" style="background-color:#c0392b;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver" onclick="changeJewelryColor('silver', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#C0C0C0"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-pink" onclick="changeJewelryColor('gold-pink', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#FF69B4"></div></div>
 
 
     </div>
@@ -363,6 +379,9 @@
         <div onclick="changeBlushColor('light', this)" class="coloroption" data-category="blush" style="background-color: #c9486b;"></div>
         <div onclick="changeBackgroundColor('#c66d36', this)" class="coloroption" data-category="bg" style="background-color: #c66d36;"></div>
         <div onclick="changeTopColor('yellow', this)"  class="coloroption" data-category="tops" style="background-color:#e8c84a;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="red" onclick="changeJewelryColor('red', this)"><div class="top-color" style="background:#CC0000"></div><div class="bottom-color" style="background:#CC0000"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-blue" onclick="changeJewelryColor('gold-blue', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#175282"></div></div>
+
     </div>
     <div class="coloroptions">
         <div onclick="changeSkin(4), this" class="coloroption" data-category="skin" style="background-color: #bb6e66;"></div>
@@ -370,42 +389,64 @@
         <div onclick="changeHairColor('orange', this)" class="coloroption" data-category="hairs" style="background-color: #914818;"></div>
         <div onclick="changeBrowColor('orange', this)" class="coloroption" data-category="brows" style="background-color: #914818;"></div>
         <div onclick="changeLipColor('lightpink', this)" class="coloroption" data-category="lips" style="background-color: #cf6986;"></div>
-        <div onclick="changeBlushColor('rogue', this)" class="coloroption" data-category="blush" style="background-color: #930027;"></div>
+        <div onclick="changeBlushColor('rouge', this)" class="coloroption" data-category="blush" style="background-color: #930027;"></div>
         <div onclick="changeBackgroundColor('#ceab54', this)" class="coloroption" data-category="bg" style="background-color: #ceab54;"></div>
         <div onclick="changeTopColor('green', this)" class="coloroption" data-category="tops" style="background-color:#4caf50;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="pink" onclick="changeJewelryColor('pink', this)"><div class="top-color" style="background:#FF69B4"></div><div class="bottom-color" style="background:#FF69B4"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-white" onclick="changeJewelryColor('gold-white', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#FFFFFF"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-purple" onclick="changeJewelryColor('gold-purple', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#800080"></div></div>
+
     </div>
     <div class="coloroptions">
         <div onclick="changeSkin(5), this" class="coloroption" data-category="skin" style="background-color: #db9095;"></div>
         <div onclick="changeBackgroundColor('#66c655', this)" class="coloroption" data-category="bg" style="background-color: #66c655;"></div>
        <div onclick="changeTopColor('blue', this)" class="coloroption" data-category="tops" style="background-color:#2b46c0;"></div>
-      
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="purple" onclick="changeJewelryColor('purple', this)"><div class="top-color" style="background:#800080"></div><div class="bottom-color" style="background:#800080"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-black" onclick="changeJewelryColor('gold-black', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#222222"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="gold-green" onclick="changeJewelryColor('gold-green', this)"><div class="top-color" style="background:#FFD700"></div><div class="bottom-color" style="background:#008000"></div></div>
+
         </div>
 
     <div class="coloroptions">
         <div onclick="changeSkin(6), this" class="coloroption" data-category="skin" style="background-color: #e2a6a7;"></div>
         <div onclick="changeBackgroundColor('#4dc3bb', this)" class="coloroption" data-category="bg" style="background-color: #4dc3bb;"></div>
         <div onclick="changeTopColor('purple', this)" class="coloroption" data-category="tops" style="background-color:#8e44ad;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="blue" onclick="changeJewelryColor('blue', this)"><div class="top-color" style="background:#175282"></div><div class="bottom-color" style="background:#175282"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-red" onclick="changeJewelryColor('silver-red', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#CC0000"></div></div>
+
     </div>
 
     <div class="coloroptions">
         <div onclick="changeBackgroundColor('#5d72cf', this)" class="coloroption" data-category="bg" style="background-color: #5d72cf;"></div>
-         <div onclick="changeTopColor('magenta', this)" class="coloroption" data-category="tops" style="background-color:#a10f71;"></div>
+        <div onclick="changeTopColor('magenta', this)" class="coloroption" data-category="tops" style="background-color:#a10f71;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="green" onclick="changeJewelryColor('green', this)"><div class="top-color" style="background:#008000"></div><div class="bottom-color" style="background:#008000"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-pink" onclick="changeJewelryColor('silver-pink', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#FF69B4"></div></div>
+
     </div>
 
     <div class="coloroptions">
         <div onclick="changeBackgroundColor('#b179d4', this)" class="coloroption" data-category="bg" style="background-color: #b179d4;"></div>
         <div onclick="changeTopColor('brown', this)"  class="coloroption" data-category="tops" style="background-color:#6d4c41;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="white" onclick="changeJewelryColor('white', this)"><div class="top-color" style="background:#FFFFFF"></div><div class="bottom-color" style="background:#FFFFFF"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-blue" onclick="changeJewelryColor('silver-blue', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#175282"></div></div>
+
     </div>
 
     <div class="coloroptions">
         <div onclick="changeBackgroundColor('#bc6ea4', this)" class="coloroption" data-category="bg" style="background-color: #bc6ea4;"></div>
         <div onclick="changeTopColor('white', this)"  class="coloroption" data-category="tops" style="background-color:#ffffff;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="black" onclick="changeJewelryColor('black', this)"><div class="top-color" style="background:#000000"></div><div class="bottom-color" style="background:#000000"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-white" onclick="changeJewelryColor('silver-white', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#FFFFFF"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-purple" onclick="changeJewelryColor('silver-purple', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#800080"></div></div>
+
 
     </div>
 
     <div class="coloroptions">
         <div onclick="changeBackgroundColor('#e49ec2', this)" class="coloroption" data-category="bg" style="background-color: #e49ec2;"></div>
         <div onclick="changeTopColor('black', this)"  class="coloroption" data-category="tops" style="background-color:#000000;"></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-black" onclick="changeJewelryColor('silver-black', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#222222"></div></div>
+        <div class="jewelry-dot coloroption" data-category="jewelry" data-color="silver-green" onclick="changeJewelryColor('silver-green', this)"><div class="top-color" style="background:#C0C0C0"></div><div class="bottom-color" style="background:#008000"></div></div>
 
     </div>
 
@@ -741,19 +782,19 @@
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush1_dark.png" data-color="dark" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush1_medium.png" data-color="medium" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush1_light.png" data-color="light"  class="blushes"/>
-                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush1_rogue.png" data-color="rogue"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush1_rouge.png" data-color="rouge"  class="blushes"/>
                     </div>
                     <div class="blushshape" id="blush2">
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush2_dark.png" data-color="dark" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush2_medium.png" data-color="medium" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush2_light.png" data-color="light"  class="blushes"/>
-                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush2_rogue.png" data-color="rogue"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush2_rouge.png" data-color="rouge"  class="blushes"/>
                     </div>
                     <div class="blushshape" id="blush3">
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush3_dark.png" data-color="dark" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush3_medium.png" data-color="medium" class="blushes"/>
                     <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush3_light.png" data-color="light"  class="blushes"/>
-                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush3_rogue.png" data-color="rogue"  class="blushes"/>
+                    <img loading="lazy" src="DressupGame_Assets/Beauty/Makeup/Blush/blush3_rouge.png" data-color="rouge"  class="blushes"/>
                     </div>
                 </div>
 
@@ -912,6 +953,94 @@
 
                 </div>
           
+                <!--JEWELRY-->
+                    <div class="jewelry">
+
+                    <div class="jewelryshape" id="droop">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Earrings/droops_gold.png" data-color="gold" class="jewelrystyle earring"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Earrings/droops_silver.png" data-color="silver" class="jewelrystyle earring"/>
+                    </div>
+
+                    <div class="jewelryshape" id="hoop">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Earrings/hoops_gold.png" data-color="gold" class="jewelrystyle earring"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Earrings/hoops_silver.png" data-color="silver" class="jewelrystyle earring"/>
+                    </div>
+
+
+
+                    <div class="jewelryshape" id="heartchains">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_black.png" data-color="gold-black" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_white.png" data-color="gold-white" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_red.png" data-color="gold-red" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_pink.png" data-color="gold-pink" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_blue.png" data-color="gold-blue" class="jewelrystyle"/>
+
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_silver_black.png" data-color="silver-black" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_silver_white.png" data-color="silver-white" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_silver_red.png" data-color="silver-red" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_silver_pink.png" data-color="silver-pink" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_silver_blue.png" data-color="silver-blue" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="chains">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="moonchains">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_moon_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Chains/chains_moon_silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="necklacemed">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_med_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_med_ silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="necklacelarge">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_large_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_large_ silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="longnecklace">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_gold_red.png" data-color="gold-red" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_gold_pink.png" data-color="gold-pink" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_gold_purple.png" data-color="gold-purple" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_gold_blue.png" data-color="gold-blue" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_gold_green.png" data-color="gold-green" class="jewelrystyle"/>
+
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_silver_red.png" data-color="silver-red" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_silver_pink.png" data-color="silver-pink" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_silver_purple.png" data-color="silver-purple" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_silver_blue.png" data-color="silver-blue" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Long_Necklace/necklace_silver_green.png" data-color="silver-green" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="choker">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_black.png" data-color="black" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_white.png" data-color="white" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_red.png" data-color="red" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_pink.png" data-color="pink" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_blue.png" data-color="blue" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_green.png" data-color="green" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_purple.png" data-color="purple" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Choker/choker_silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    <div class="jewelryshape" id="necklacesmall">
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_small_gold.png" data-color="gold" class="jewelrystyle"/>
+                    <img loading="lazy" src="DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_small_ silver.png" data-color="silver" class="jewelrystyle"/>
+                    </div>
+
+                    </div>
+
+
+                    
+
+
+
+
 
                 
                 <!--TOPS-->
@@ -1337,12 +1466,23 @@
              <div class="padding">
              <p class="optiontitle">Jewelry</p>   
             <div class="optioncontainer">
-                  <div loading="lazy" class="beautyoptionsjewelry"  ><p class="caption">Coming soon!</p></div>
-                  <div loading="lazy" class="beautyoptionsjewelry"  ></div>
-                  <div loading="lazy" class="beautyoptionsjewelry"  ></div>
-                  <div loading="lazy" class="beautyoptionsjewelry"  ></div>
-                  <div loading="lazy" class="beautyoptionsjewelry"  ></div>
-                  <div loading="lazy" class="beautyoptionsjewelry"  ></div>
+                  <div onclick="changeJewelryShape('droop', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Earrings/droops_gold.png)"></div>
+                  <div onclick="changeJewelryShape('hoop', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Earrings/hoops_gold.png)"></div>
+                  <div onclick="changeJewelryShape('choker', this)" data-colors="black,white,red,pink,blue,purple,green,silver,gold" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Choker/choker_black.png)"></div>
+                  <div onclick="changeJewelryShape('chains', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Chains/chains_gold.png)"></div>
+                  <div onclick="changeJewelryShape('moonchains', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Chains/chains_moon_gold.png)"></div>
+                  <div onclick="changeJewelryShape('heartchains', this)" 
+                        data-colors="gold-black,gold-white,gold-red,gold-pink,gold-blue,silver-black,silver-white,silver-red,silver-pink,silver-blue" 
+                        class="beautyoptionsjewelry" 
+                        style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_black.png)"></div>
+                  <div onclick="changeJewelryShape('necklacesmall', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_small_gold.png)"></div>
+                  <div onclick="changeJewelryShape('necklacemed', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_med_gold.png)"></div>
+                  <div onclick="changeJewelryShape('necklacelarge', this)" data-colors="gold,silver" class="beautyoptionsjewelry" style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Necklaces/necklace_large_gold.png)"></div>
+                  <div onclick="changeJewelryShape('longnecklace', this)" 
+                        data-colors="gold-green,gold-purple,gold-red,gold-pink,gold-blue,silver-green,silver-purple,silver-red,silver-pink,silver-blue" 
+                        class="beautyoptionsjewelry" 
+                        style="background-image:url(DressupGame_Assets/Clothes/Jewelry/Chains/chains_heart_gold_black.png)"></div>
+
             </div>
             </div>
         </div>
@@ -1395,6 +1535,10 @@
 
 <script>
 function applyColorFilter(value) {
+    if (["hairs", "brows", "lips", "tops"].includes(activeColorCategory)) {
+        document.getElementById("frontcolor").style.filter = `hue-rotate(${value}deg) saturate(2)`;
+    }
+
   if (!activeColorCategory || ["nose", "bg", "jewelry", "skin"].includes(activeColorCategory)) return;
   let activeImg = null;
 
