@@ -1,3 +1,4 @@
+**All artwork, illustrations, and visual assets in this project are original works by Alexsandria Manuel and are protected under copyright. No artwork may be reused, reproduced, modified, or repurposed in any form without explicit written permission from the creator.**
 
 *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
  
@@ -46,9 +47,7 @@ the barrier for users of all ages.
 ♡✧--Credits--✧♡
 Background music is from Spireleaf on YouTube.
 
-
+Visual assets drawn by Alexsandria Manuel via Krita and Procreate.
 © Alexsandria Manuel 2026
-All art is drawn by Alexsandria Manuel via Krita.
-
 
  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
