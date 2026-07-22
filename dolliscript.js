@@ -748,7 +748,7 @@ function setOutline(category, index) {
 }
 
 function showColorOptions(category) {
-  document.querySelector(".front").style.backgroundColor = "#f1f1f1";
+    document.getElementById("frontcolor").style.backgroundColor = "#f1f1f1";
 
   document.getElementById("huelabel").style.display =
     (category === "hairs" || category === "brows" || category === "tops" || category === "lips") ? "block" : "none";
@@ -870,6 +870,7 @@ function goToSection(index) {
   }
   if (category === "nose") {
     document.querySelectorAll(".beautyoptionsnose").forEach(el => {
+      showColorOptions("skin");
       el.classList.toggle("active", el.getAttribute("onclick")?.includes(currentNoseId));
     });
   }
